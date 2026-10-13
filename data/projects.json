@@ -1,0 +1,42 @@
+[
+  {
+    "id": "auris",
+    "title": "Auris — VonharV",
+    "category": "Landing de producto",
+    "description": "Landing page para auricular gaming de alta gama. Titanium Edition con drivers de titanio de 40mm, cancelación activa de ruido y conectividad Bluetooth 5.3.",
+    "url": "https://auris-vonharv.vercel.app/",
+    "tags": ["Landing Page", "Product Design", "UI"]
+  },
+  {
+    "id": "creative-events",
+    "title": "Creative Events",
+    "category": "Sitio corporativo",
+    "description": "Sitio para productora de eventos con identidad propia. Eventos corporativos y sociales, portfolio de trabajos y gestión de consultas.",
+    "url": "https://crve-events.com/",
+    "tags": ["Web Design", "Next.js", "Eventos"]
+  },
+  {
+    "id": "estudio-centenario",
+    "title": "Estudio Centenario",
+    "category": "Sitio profesional",
+    "description": "Sitio web para estudio profesional argentino. Diseño editorial, presentación de servicios y portfolio de trabajos.",
+    "url": "http://estudiocentenario.com.ar/",
+    "tags": ["Web Design", "Editorial"]
+  },
+  {
+    "id": "creative-films",
+    "title": "Creative Films",
+    "category": "Productora audiovisual",
+    "description": "Sitio para productora audiovisual boutique de Buenos Aires y La Plata. Cobertura cinematográfica, concepto visual y post-producción.",
+    "url": "https://project-4s9ht.vercel.app/",
+    "tags": ["Web Design", "Next.js", "Audiovisual"]
+  },
+  {
+    "id": "subasta",
+    "title": "Plataforma de Subastas",
+    "category": "Plataforma web",
+    "description": "Plataforma de subastas online para arte y coleccionables. Gestión de lotes, precios base y catálogo de objetos destacados.",
+    "url": "https://subastas-tan.vercel.app/subasta",
+    "tags": ["UI/UX", "Next.js", "Plataforma"]
+  }
+]
