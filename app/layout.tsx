@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Agustin Galeazzi — Diseñador Multimedial",
   description:
     "Portfolio de Agustin Galeazzi, Diseñador Multimedial de La Plata, Argentina. Especializado en diseño web, UX/UI y experiencias interactivas.",
+  icons: {
+    icon: [{ url: "/logo.png", sizes: "any" }],
+  },
 };
 
 export default function RootLayout({
