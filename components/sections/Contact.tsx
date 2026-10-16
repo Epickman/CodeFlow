@@ -22,20 +22,23 @@ export default function Contact() {
         transition={{ duration: 0.6 }}
         className="flex flex-col items-center text-center"
       >
-        <h2 className="text-xs tracking-widest uppercase text-[var(--color-muted)] mb-8">
-          Contacto
-        </h2>
-        <p className="text-4xl md:text-5xl font-semibold leading-tight mb-12">
+        <div className="flex items-baseline gap-4 mb-8">
+          <span className="text-xs font-mono text-[var(--color-accent)]">03</span>
+          <h2 className="text-xs tracking-widest uppercase text-[var(--color-muted)]">
+            Contacto
+          </h2>
+        </div>
+        <p className="text-5xl md:text-7xl lg:text-8xl font-semibold leading-tight mb-12">
           ¿Tenés un proyecto
           <br />
           en mente?
         </p>
-        <div className="space-y-5 w-full max-w-sm">
+        <div className="space-y-4 w-full max-w-sm">
           <a
             href="mailto:agustingaleazzidev@gmail.com"
-            className="flex items-center gap-4 group"
+            className="flex items-center gap-4 p-4 border border-[var(--color-border)] group hover:border-[var(--color-accent)] hover:bg-[var(--color-accent-subtle)] transition-all duration-200"
           >
-            <span className="flex items-center justify-center w-10 h-10 border border-[var(--color-border)] text-[var(--color-muted)] group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent)] transition-colors">
+            <span className="flex items-center justify-center w-9 h-9 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors">
               <Mail size={16} />
             </span>
             <span className="text-sm group-hover:text-[var(--color-accent)] transition-colors">
@@ -46,9 +49,9 @@ export default function Contact() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-4 group"
+            className="flex items-center gap-4 p-4 border border-[var(--color-border)] group hover:border-[var(--color-accent)] hover:bg-[var(--color-accent-subtle)] transition-all duration-200"
           >
-            <span className="flex items-center justify-center w-10 h-10 border border-[var(--color-border)] text-[var(--color-muted)] group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent)] transition-colors">
+            <span className="flex items-center justify-center w-9 h-9 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors">
               <MessageCircle size={16} />
             </span>
             <span className="text-sm group-hover:text-[var(--color-accent)] transition-colors">
@@ -56,16 +59,16 @@ export default function Contact() {
             </span>
           </a>
           <a
-            href="https://www.behance.net/Tingaleazzi"
+            href="https://www.linkedin.com/in/agustingaleazzi/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-4 group"
+            className="flex items-center gap-4 p-4 border border-[var(--color-border)] group hover:border-[var(--color-accent)] hover:bg-[var(--color-accent-subtle)] transition-all duration-200"
           >
-            <span className="flex items-center justify-center w-10 h-10 border border-[var(--color-border)] text-[var(--color-muted)] group-hover:border-[var(--color-accent)] group-hover:text-[var(--color-accent)] transition-colors">
+            <span className="flex items-center justify-center w-9 h-9 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors">
               <ExternalLink size={16} />
             </span>
             <span className="text-sm group-hover:text-[var(--color-accent)] transition-colors">
-              behance.net/Tingaleazzi
+              linkedin.com/in/agustingaleazzi
             </span>
           </a>
         </div>

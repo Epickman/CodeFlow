@@ -3,12 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #fafafa;
+  --color-bg: #f9f8f6;
   --color-text: #111111;
   --color-accent: #3b82f6;
+  --color-accent-subtle: rgba(59, 130, 246, 0.07);
   --color-muted: #6b7280;
   --color-border: #e5e7eb;
   --color-surface: #ffffff;
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 html {

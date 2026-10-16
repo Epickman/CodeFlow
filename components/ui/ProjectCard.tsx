@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 interface Project {
   id: string;
@@ -22,12 +23,10 @@ function Thumbnail({ url, title }: { url: string; title: string }) {
 
   return (
     <div className="relative w-full aspect-video overflow-hidden bg-[var(--color-bg)]">
-      {/* skeleton mientras carga */}
       {!loaded && !error && (
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-border)] to-[var(--color-bg)] animate-pulse" />
       )}
 
-      {/* fallback si falla la carga */}
       {error && (
         <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-bg)]">
           <span className="text-xs text-[var(--color-muted)] tracking-widest uppercase">
@@ -49,6 +48,12 @@ function Thumbnail({ url, title }: { url: string; title: string }) {
           onError={() => setError(true)}
         />
       )}
+
+      <div className="absolute inset-0 bg-[var(--color-text)]/0 group-hover:bg-[var(--color-text)]/10 transition-colors duration-300 flex items-center justify-center">
+        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-md">
+          <ArrowUpRight size={16} className="text-[var(--color-text)]" />
+        </div>
+      </div>
     </div>
   );
 }
@@ -69,7 +74,7 @@ export default function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      className="group border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-text)] transition-colors duration-200 block overflow-hidden"
+      className="group border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-text)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 block overflow-hidden"
     >
       <Thumbnail url={project.url} title={project.title} />
 
