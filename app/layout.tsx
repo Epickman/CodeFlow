@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   title: "Agustin Galeazzi Dev — Diseñador Multimedial y Desarrollador Web",
   description: DESCRIPTION,
   alternates: { canonical: "/" },
+  verification: { google: "9Bl9OnTVA3gckXl_8OOzEtXX2B56tMop9ix1Z_AdpeQ" },
   openGraph: {
     type: "website",
     locale: "es_AR",
@@ -47,7 +48,10 @@ const jsonLd = {
     addressLocality: "La Plata",
     addressCountry: "AR",
   },
-  sameAs: ["https://www.linkedin.com/in/agustingaleazzi/"],
+  sameAs: [
+    "https://www.linkedin.com/in/agustingaleazzi/",
+    "https://www.behance.net/Tingaleazzi",
+  ],
 };
 
 export default function RootLayout({

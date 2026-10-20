@@ -36,7 +36,7 @@ export default function About() {
         >
           <Image
             src="/yo.jpg"
-            alt="Agustin Galeazzi"
+            alt="Foto de Agustin Galeazzi, diseñador multimedial y desarrollador web"
             fill
             className="object-cover object-center"
           />

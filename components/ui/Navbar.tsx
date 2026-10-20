@@ -40,7 +40,7 @@ export default function Navbar() {
               ? "w-[110px] h-[38px] md:w-[130px] md:h-[44px]"
               : "w-[170px] h-[56px] md:w-[360px] md:h-[120px]"
           }`}>
-            <Image src="/logo.png" alt="Logo" fill className="object-contain object-left mix-blend-multiply" />
+            <Image src="/logo.png" alt="Logo de Agustin Galeazzi Dev" fill className="object-contain object-left mix-blend-multiply" />
           </div>
         </a>
         <ul className="hidden md:flex gap-8">

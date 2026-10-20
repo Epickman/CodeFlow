@@ -7,7 +7,7 @@ export default function Hero() {
     <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden">
       <Image
         src="/banner.jpg"
-        alt="Banner Agustin Galeazzi"
+        alt="Persona programando en una laptop con un editor de código abierto"
         fill
         className="object-cover object-center"
         priority
@@ -59,7 +59,7 @@ export default function Hero() {
             whileHover={{ opacity: 0.75, transition: { duration: 0.2 } }}
             className="text-6xl sm:text-7xl md:text-8xl xl:text-[10rem] font-semibold tracking-tight leading-none text-[var(--color-text)] cursor-default select-none"
           >
-            <span className="block">Agustin</span>
+            <span className="block">Agustin</span>{" "}
             <span className="block">Galeazzi</span>
           </motion.h1>
         </div>
