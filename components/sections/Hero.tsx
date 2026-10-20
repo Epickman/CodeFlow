@@ -57,8 +57,8 @@ export default function Hero() {
             whileHover={{ opacity: 0.75, transition: { duration: 0.2 } }}
             className="text-6xl md:text-8xl lg:text-[10rem] font-semibold tracking-tight leading-none text-[var(--color-text)] cursor-default select-none"
           >
-            <span className="block">Code</span>
-            <span className="block">flow</span>
+            <span className="block">Agustin</span>
+            <span className="block">Galeazzi</span>
           </motion.h1>
         </div>
 
@@ -68,7 +68,7 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-2xl md:text-3xl text-[var(--color-muted)] mb-14"
         >
-          Software Solutions
+          Dev
         </motion.p>
 
         <motion.div

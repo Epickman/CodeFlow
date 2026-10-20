@@ -36,7 +36,7 @@ export default function Navbar() {
           <div className={`relative transition-all duration-300 overflow-hidden ${
             scrolled ? "w-[130px] h-[44px]" : "w-[360px] h-[120px]"
           }`}>
-            <Image src="/logo.png" alt="Logo" fill className="object-contain object-left" />
+            <Image src="/logo.png" alt="Logo" fill className="object-contain object-left mix-blend-multiply" />
           </div>
         </a>
         <ul className="flex gap-8">

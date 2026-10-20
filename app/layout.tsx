@@ -9,9 +9,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Codeflow",
+  title: "Agustin Galeazzi Dev",
   description:
-    "Portfolio de Agustin Galeazzi, Diseñador Multimedial de La Plata, Argentina. Especializado en diseño web, UX/UI y experiencias interactivas.",
+    "Portfolio de Agustin Galeazzi Dev, Diseñador Multimedial y Desarrollador Web de La Plata, Argentina. Especializado en diseño web, UX/UI y experiencias interactivas.",
 };
 
 export default function RootLayout({
