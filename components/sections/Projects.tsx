@@ -5,7 +5,7 @@ export default function Projects() {
   return (
     <section
       id="trabajos"
-      className="py-28 px-8 md:px-16 border-t border-[var(--color-border)]"
+      className="py-20 md:py-28 px-6 sm:px-8 md:px-16 border-t border-[var(--color-border)]"
     >
       <div className="w-full">
         <div className="flex items-baseline gap-4 mb-12">

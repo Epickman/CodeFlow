@@ -12,7 +12,7 @@ export default function Home() {
       <Projects />
       <About />
       <Contact />
-      <footer className="py-8 px-8 md:px-16 border-t border-[var(--color-border)]">
+      <footer className="py-8 px-6 sm:px-8 md:px-16 border-t border-[var(--color-border)]">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
           <p className="text-xs text-[var(--color-muted)]">
             © 2025 Agustin Galeazzi — Diseñador Multimedial

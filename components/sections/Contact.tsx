@@ -14,7 +14,7 @@ export default function Contact() {
     <section
       id="contacto"
       ref={ref}
-      className="py-28 px-8 md:px-16 border-t border-[var(--color-border)]"
+      className="py-20 md:py-28 px-6 sm:px-8 md:px-16 border-t border-[var(--color-border)]"
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -28,7 +28,7 @@ export default function Contact() {
             Contacto
           </h2>
         </div>
-        <p className="text-5xl md:text-7xl lg:text-8xl font-semibold leading-tight mb-12">
+        <p className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold leading-tight mb-10 md:mb-12">
           ¿Tenés un proyecto
           <br />
           en mente?
@@ -41,7 +41,7 @@ export default function Contact() {
             <span className="flex items-center justify-center w-9 h-9 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors">
               <Mail size={16} />
             </span>
-            <span className="text-sm group-hover:text-[var(--color-accent)] transition-colors">
+            <span className="text-sm text-left break-all group-hover:text-[var(--color-accent)] transition-colors">
               agustingaleazzidev@gmail.com
             </span>
           </a>
@@ -54,7 +54,7 @@ export default function Contact() {
             <span className="flex items-center justify-center w-9 h-9 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors">
               <MessageCircle size={16} />
             </span>
-            <span className="text-sm group-hover:text-[var(--color-accent)] transition-colors">
+            <span className="text-sm text-left break-all group-hover:text-[var(--color-accent)] transition-colors">
               +54 221 576-2430
             </span>
           </a>
@@ -67,7 +67,7 @@ export default function Contact() {
             <span className="flex items-center justify-center w-9 h-9 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors">
               <ExternalLink size={16} />
             </span>
-            <span className="text-sm group-hover:text-[var(--color-accent)] transition-colors">
+            <span className="text-sm text-left break-all group-hover:text-[var(--color-accent)] transition-colors">
               linkedin.com/in/agustingaleazzi
             </span>
           </a>

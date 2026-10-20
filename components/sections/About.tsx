@@ -23,16 +23,16 @@ export default function About() {
     <section
       id="sobre-mi"
       ref={ref}
-      className="py-28 px-8 md:px-16 bg-[#111111]"
+      className="py-20 md:py-28 px-6 sm:px-8 md:px-16 bg-[#111111]"
     >
-      <div className="w-full grid md:grid-cols-2 gap-6 items-start">
+      <div className="w-full grid md:grid-cols-2 gap-10 md:gap-6 items-start">
 
         {/* foto */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="relative aspect-[3/4] w-3/4 overflow-hidden"
+          className="relative aspect-[3/4] w-full max-w-sm md:max-w-none md:w-3/4 overflow-hidden"
         >
           <Image
             src="/yo.jpg"
@@ -47,7 +47,7 @@ export default function About() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex flex-col gap-12"
+          className="flex flex-col gap-10 md:gap-12"
         >
           <div>
             <div className="flex items-baseline gap-4 mb-8">
@@ -56,18 +56,18 @@ export default function About() {
                 Sobre mí
               </h2>
             </div>
-            <p className="text-4xl font-semibold text-white mb-2">
+            <p className="text-3xl sm:text-4xl font-semibold text-white mb-2">
               Agustin Galeazzi
             </p>
-            <p className="text-base tracking-widest uppercase text-[var(--color-accent)] mb-8">
+            <p className="text-sm sm:text-base tracking-widest uppercase text-[var(--color-accent)] mb-6 md:mb-8">
               Diseñador Multimedial
             </p>
-            <p className="text-2xl leading-relaxed mb-5 text-white">
+            <p className="text-xl md:text-2xl leading-relaxed mb-5 text-white">
               Soy licenciado en diseño multimedial, me dedico a realizar experiencias
               digitales que parten desde el análisis hasta el diseño del producto final,
               poniendo especial atención a cada detalle.
             </p>
-            <p className="text-lg text-white/60 leading-relaxed mb-10">
+            <p className="text-base md:text-lg text-white/60 leading-relaxed mb-8 md:mb-10">
               Realizo trabajos de programación digital y desarrollo web que permiten
               fusionar distintas ramas del campo de la multimedia.
             </p>
@@ -92,7 +92,7 @@ export default function About() {
               {skills.map((skill) => (
                 <span
                   key={skill}
-                  className="text-base border border-white/20 px-4 py-2 text-white/70 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] hover:bg-[var(--color-accent-subtle)] transition-colors duration-200 cursor-default"
+                  className="text-sm md:text-base border border-white/20 px-3 py-1.5 md:px-4 md:py-2 text-white/70 hover:border-[var(--color-accent)] hover:text-[var(--color-accent)] hover:bg-[var(--color-accent-subtle)] transition-colors duration-200 cursor-default"
                 >
                   {skill}
                 </span>
