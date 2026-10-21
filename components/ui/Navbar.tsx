@@ -2,15 +2,17 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-
-const links = [
-  { label: "Trabajos", href: "#trabajos" },
-  { label: "Sobre mí", href: "#sobre-mi" },
-  { label: "Contacto", href: "#contacto" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const { lang, t, toggle } = useLanguage();
+
+  const links = [
+    { label: t.nav.works, href: "#trabajos" },
+    { label: t.nav.about, href: "#sobre-mi" },
+    { label: t.nav.contact, href: "#contacto" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -39,18 +41,28 @@ export default function Navbar() {
             <Image src="/logo.png" alt="Logo" fill className="object-contain object-left mix-blend-multiply" />
           </div>
         </a>
-        <ul className="flex gap-8">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+
+        <div className="flex items-center gap-8">
+          <ul className="flex gap-8">
+            {links.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-sm text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            onClick={toggle}
+            className="text-xs font-mono tracking-widest text-[var(--color-muted)] hover:text-[var(--color-text)] transition-colors border border-[var(--color-border)] hover:border-[var(--color-text)] px-2.5 py-1 select-none"
+          >
+            {lang === "es" ? "EN" : "ES"}
+          </button>
+        </div>
       </div>
     </motion.nav>
   );

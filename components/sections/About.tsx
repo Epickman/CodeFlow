@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
+import { useLanguage } from "@/context/LanguageContext";
 
 const skills = [
   "UI Design",
@@ -19,6 +20,8 @@ const skills = [
 export default function About() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
+
   return (
     <section
       id="sobre-mi"
@@ -27,7 +30,6 @@ export default function About() {
     >
       <div className="w-full grid md:grid-cols-2 gap-6 items-start">
 
-        {/* foto */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -42,7 +44,6 @@ export default function About() {
           />
         </motion.div>
 
-        {/* texto + skills */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -53,40 +54,34 @@ export default function About() {
             <div className="flex items-baseline gap-4 mb-8">
               <span className="text-xs font-mono text-[var(--color-accent)]">02</span>
               <h2 className="text-xs tracking-widest uppercase text-white/50">
-                Sobre mí
+                {t.about.label}
               </h2>
             </div>
             <p className="text-4xl font-semibold text-white mb-2">
               Agustin Galeazzi
             </p>
             <p className="text-base tracking-widest uppercase text-[var(--color-accent)] mb-8">
-              Diseñador Multimedial
+              {t.about.role}
             </p>
             <p className="text-2xl leading-relaxed mb-5 text-white">
-              Soy licenciado en diseño multimedial, me dedico a realizar experiencias
-              digitales que parten desde el análisis hasta el diseño del producto final,
-              poniendo especial atención a cada detalle.
+              {t.about.bio1}
             </p>
             <p className="text-lg text-white/60 leading-relaxed mb-10">
-              Realizo trabajos de programación digital y desarrollo web que permiten
-              fusionar distintas ramas del campo de la multimedia.
+              {t.about.bio2}
             </p>
-            <div className="flex flex-col gap-3">
-
-              <a
-                href="https://www.linkedin.com/in/agustingaleazzi/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-base font-medium text-[var(--color-accent)] hover:underline"
-              >
-                Ver perfil en LinkedIn →
-              </a>
-            </div>
+            <a
+              href="https://www.linkedin.com/in/agustingaleazzi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-base font-medium text-[var(--color-accent)] hover:underline"
+            >
+              {t.about.linkedin}
+            </a>
           </div>
 
           <div>
             <h2 className="text-xs tracking-widest uppercase text-white/50 mb-6">
-              Habilidades
+              {t.about.skills}
             </h2>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
@@ -102,7 +97,7 @@ export default function About() {
 
           <div>
             <h2 className="text-xs tracking-widest uppercase text-white/50 mb-6">
-              Trabajo destacado
+              {t.about.featured}
             </h2>
             <div className="border border-white/20 hover:border-[var(--color-accent)] transition-colors duration-200 group">
               <a
@@ -112,13 +107,13 @@ export default function About() {
                 className="block p-5 pb-3"
               >
                 <span className="text-xs tracking-widest uppercase text-white/40 group-hover:text-[var(--color-accent)] transition-colors">
-                  App
+                  {t.about.featuredType}
                 </span>
                 <p className="text-lg font-semibold text-white mt-1 mb-2 group-hover:underline underline-offset-2">
                   Creative Events
                 </p>
                 <p className="text-sm text-white/60 leading-relaxed">
-                  Sitio para productora de eventos con identidad propia. Eventos corporativos y sociales, portfolio de trabajos y gestión de consultas.
+                  {t.about.featuredDesc}
                 </p>
               </a>
               <div className="flex gap-3 flex-wrap px-5 pb-5">

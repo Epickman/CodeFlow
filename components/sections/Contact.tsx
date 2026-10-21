@@ -2,13 +2,14 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Mail, ExternalLink, MessageCircle } from "lucide-react";
-
-const WA_LINK =
-  "https://wa.me/542215762430?text=Hola%20Agustin%2C%20te%20contacto%20desde%20tu%20portfolio%20web.";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
+
+  const waLink = `https://wa.me/542215762430?text=${t.contact.waMessage}`;
 
   return (
     <section
@@ -25,13 +26,13 @@ export default function Contact() {
         <div className="flex items-baseline gap-4 mb-8">
           <span className="text-xs font-mono text-[var(--color-accent)]">03</span>
           <h2 className="text-xs tracking-widest uppercase text-[var(--color-muted)]">
-            Contacto
+            {t.contact.label}
           </h2>
         </div>
         <p className="text-5xl md:text-7xl lg:text-8xl font-semibold leading-tight mb-12">
-          ¿Tenés un proyecto
+          {t.contact.heading1}
           <br />
-          en mente?
+          {t.contact.heading2}
         </p>
         <div className="space-y-4 w-full max-w-sm">
           <a
@@ -46,7 +47,7 @@ export default function Contact() {
             </span>
           </a>
           <a
-            href={WA_LINK}
+            href={waLink}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-4 p-4 border border-[var(--color-border)] group hover:border-[var(--color-accent)] hover:bg-[var(--color-accent-subtle)] transition-all duration-200"

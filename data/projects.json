@@ -3,7 +3,9 @@
     "id": "auris",
     "title": "Auris — VonharV",
     "category": "Landing de producto",
+    "category_en": "Product landing",
     "description": "Landing page para auricular gaming de alta gama. Titanium Edition con drivers de titanio de 40mm, cancelación activa de ruido y conectividad Bluetooth 5.3.",
+    "description_en": "Landing page for a high-end gaming headset. Titanium Edition with 40mm titanium drivers, active noise cancellation and Bluetooth 5.3.",
     "url": "https://auris-vonharv.vercel.app/",
     "tags": ["Landing Page", "Product Design", "UI"]
   },
@@ -11,15 +13,39 @@
     "id": "creative-events",
     "title": "Creative Events",
     "category": "Sitio corporativo",
+    "category_en": "Corporate site",
     "description": "Sitio para productora de eventos con identidad propia. Eventos corporativos y sociales, portfolio de trabajos y gestión de consultas.",
+    "description_en": "Website for an event production company with its own identity. Corporate and social events, portfolio and inquiry management.",
     "url": "https://crve-events.com/",
     "tags": ["Web Design", "Next.js", "Eventos"]
+  },
+  {
+    "id": "killer-studio",
+    "title": "Killer Studio FX",
+    "category": "Agencia creativa",
+    "category_en": "Creative agency",
+    "description": "Sitio para estudio de efectos visuales y motion graphics. Presentación de servicios, showreel y contacto para producciones audiovisuales.",
+    "description_en": "Website for a visual effects and motion graphics studio. Services, showreel and contact for audiovisual productions.",
+    "url": "https://www.killerstudiofx.com/",
+    "tags": ["Web Design", "Motion", "VFX"]
+  },
+  {
+    "id": "sorteo-dia-madre",
+    "title": "Sorteo Día de la Madre",
+    "category": "Aplicación web",
+    "category_en": "Web app",
+    "description": "Aplicación de sorteo interactiva para el Día de la Madre. Registro de participantes, animación del sorteo en tiempo real y gestión de premios.",
+    "description_en": "Interactive raffle app for Mother's Day. Participant registration, real-time draw animation and prize management.",
+    "url": "https://sorteodiadelamadre.vercel.app/",
+    "tags": ["Next.js", "UI/UX", "App"]
   },
   {
     "id": "estudio-centenario",
     "title": "Estudio Centenario",
     "category": "Sitio profesional",
+    "category_en": "Professional site",
     "description": "Sitio web para estudio profesional argentino. Diseño editorial, presentación de servicios y portfolio de trabajos.",
+    "description_en": "Website for an Argentine professional studio. Editorial design, services presentation and portfolio.",
     "url": "http://estudiocentenario.com.ar/",
     "tags": ["Web Design", "Editorial"]
   },
@@ -27,7 +53,9 @@
     "id": "creative-films",
     "title": "Creative Films",
     "category": "Productora audiovisual",
+    "category_en": "Film production",
     "description": "Sitio para productora audiovisual boutique de Buenos Aires y La Plata. Cobertura cinematográfica, concepto visual y post-producción.",
+    "description_en": "Site for a boutique audiovisual production company from Buenos Aires and La Plata. Cinematographic coverage, visual concept and post-production.",
     "url": "https://project-4s9ht.vercel.app/",
     "tags": ["Web Design", "Next.js", "Audiovisual"]
   },
@@ -35,7 +63,9 @@
     "id": "subasta",
     "title": "Plataforma de Subastas",
     "category": "Plataforma web",
+    "category_en": "Web platform",
     "description": "Plataforma de subastas online para arte y coleccionables. Gestión de lotes, precios base y catálogo de objetos destacados.",
+    "description_en": "Online auction platform for art and collectibles. Lot management, starting prices and featured objects catalogue.",
     "url": "https://subastas-tan.vercel.app/subasta",
     "tags": ["UI/UX", "Next.js", "Plataforma"]
   }

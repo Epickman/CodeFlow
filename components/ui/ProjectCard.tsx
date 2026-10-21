@@ -3,12 +3,15 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface Project {
   id: string;
   title: string;
   category: string;
+  category_en?: string;
   description: string;
+  description_en?: string;
   url: string;
   tags: string[];
 }
@@ -17,7 +20,7 @@ function screenshotUrl(siteUrl: string) {
   return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(siteUrl)}?w=800&h=500`;
 }
 
-function Thumbnail({ url, title }: { url: string; title: string }) {
+function Thumbnail({ url, title, noPreview }: { url: string; title: string; noPreview: string }) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
 
@@ -30,7 +33,7 @@ function Thumbnail({ url, title }: { url: string; title: string }) {
       {error && (
         <div className="absolute inset-0 flex items-center justify-center bg-[var(--color-bg)]">
           <span className="text-xs text-[var(--color-muted)] tracking-widest uppercase">
-            Vista previa no disponible
+            {noPreview}
           </span>
         </div>
       )}
@@ -65,6 +68,10 @@ export default function ProjectCard({
   project: Project;
   index: number;
 }) {
+  const { lang, t } = useLanguage();
+  const category = lang === "en" && project.category_en ? project.category_en : project.category;
+  const description = lang === "en" && project.description_en ? project.description_en : project.description;
+
   return (
     <motion.a
       href={project.url}
@@ -76,19 +83,19 @@ export default function ProjectCard({
       transition={{ duration: 0.5, delay: index * 0.08 }}
       className="group border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-text)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 block overflow-hidden"
     >
-      <Thumbnail url={project.url} title={project.title} />
+      <Thumbnail url={project.url} title={project.title} noPreview={t.projects.noPreview} />
 
       <div className="p-6">
         <div className="mb-3">
           <span className="text-xs tracking-widest uppercase text-[var(--color-muted)]">
-            {project.category}
+            {category}
           </span>
         </div>
         <h3 className="text-lg font-semibold mb-2 leading-snug group-hover:underline underline-offset-2">
           {project.title}
         </h3>
         <p className="text-[var(--color-muted)] text-sm leading-relaxed mb-5">
-          {project.description}
+          {description}
         </p>
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
