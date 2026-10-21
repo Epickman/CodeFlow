@@ -8,8 +8,9 @@ const translations = {
       contact: "Contacto",
     },
     hero: {
-      line2: ["Soluciones", "Digitales"],
-      line3: ["Explorá mis", "trabajos"],
+      line2: ["Desarrollo", "Web"],
+      line3: ["no programo soluciones", "sino experiencias eficientes"],
+      line4: ["Explorá mis", "trabajos"],
     },
     projects: {
       label: "Trabajos",
@@ -43,8 +44,9 @@ const translations = {
       contact: "Contact",
     },
     hero: {
-      line2: ["Digital", "Solutions"],
-      line3: ["Explore my", "work"],
+      line2: ["Web", "Development"],
+      line3: ["I don't code solutions", "I craft efficient experiences"],
+      line4: ["Explore my", "work"],
     },
     projects: {
       label: "Works",
