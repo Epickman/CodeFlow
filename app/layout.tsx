@@ -62,11 +62,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
-  icons: {
-    icon: [{ url: "/logo.png", type: "image/png" }],
-    shortcut: "/logo.png",
-    apple: "/logo.png",
-  },
 };
 
 const jsonLd = {
