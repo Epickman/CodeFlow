@@ -57,8 +57,6 @@ export default function Hero() {
     const fs  = Math.min(W * 0.115, 152);
     // Desarrollo Web / Explorá: grande en desktop, relativo en mobile
     const dfs = isMobile ? Math.max(W * 0.13, 44) : Math.min(W * 0.09, 108);
-    // Frase larga: más chica, mínimo legible en mobile
-    const lfs = isMobile ? Math.max(W * 0.065, 28) : Math.min(W * 0.042, 54);
     // Scatter: más contenido en mobile para no perder partículas off-screen
     const scatterW = isMobile ? W * 0.9 : W * 1.6;
     const scatterH = isMobile ? H * 0.9 : H * 1.6;
