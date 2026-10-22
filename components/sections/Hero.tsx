@@ -22,6 +22,8 @@ export default function Hero() {
   const rafRef = useRef<number>(0);
   const progressRef = useRef(0);
   const particlesRef = useRef<Particle[]>([]);
+  const lastPRef = useRef(-1);
+  const resizeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { lang, t } = useLanguage();
 
   const { scrollYProgress } = useScroll({
@@ -80,7 +82,7 @@ export default function Hero() {
       ctx.font = `600 ${fs}px "DM Sans", sans-serif`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.fillText("Agustin", W / 2, H / 2 - fs * 0.54);
+      ctx.fillText("Agustín", W / 2, H / 2 - fs * 0.54);
       ctx.fillText("Galeazzi", W / 2, H / 2 + fs * 0.54);
     });
 
@@ -94,14 +96,20 @@ export default function Hero() {
       ctx.fillText(t.hero.line2[1], W / 2, H * 0.43 + dfs * 1.08);
     });
 
-    // Formación 3: frase larga (2 líneas, fuente más chica)
+    // Formación 3: texto que se auto-ajusta al ancho disponible
     const dst2 = sample((ctx) => {
       ctx.fillStyle = "white";
-      ctx.font = `400 ${lfs}px "DM Sans", sans-serif`;
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
+      const maxW = W * 0.88;
+      let line3fs = dfs;
+      ctx.font = `600 ${line3fs}px "DM Sans", sans-serif`;
+      while (t.hero.line3[0] && ctx.measureText(t.hero.line3[0]).width > maxW && line3fs > 18) {
+        line3fs -= 1;
+        ctx.font = `600 ${line3fs}px "DM Sans", sans-serif`;
+      }
       ctx.fillText(t.hero.line3[0], W / 2, H * 0.45);
-      ctx.fillText(t.hero.line3[1], W / 2, H * 0.45 + lfs * 1.4);
+      if (t.hero.line3[1]) ctx.fillText(t.hero.line3[1], W / 2, H * 0.45 + line3fs * 1.08);
     });
 
     // Formación 4: Explorá mis trabajos
@@ -114,7 +122,7 @@ export default function Hero() {
       ctx.fillText(t.hero.line4[1], W / 2, H * 0.43 + dfs * 1.08);
     });
 
-    const maxCount = isMobile ? 1400 : 3500;
+    const maxCount = isMobile ? 1800 : 3500;
     // Count desde formaciones 1/2/4; la frase (dst2) usa wrapping
     const count = Math.min(src.length, dst1.length, dst3.length, maxCount);
     const rnd = <T,>(a: T[]) => [...a].sort(() => Math.random() - 0.5);
@@ -137,8 +145,9 @@ export default function Hero() {
       sy2: (Math.random() - 0.5) * scatterH + H / 2,
       sx3: (Math.random() - 0.5) * scatterW + W / 2,
       sy3: (Math.random() - 0.5) * scatterH + H / 2,
-      size: isMobile ? Math.random() * 1.6 + 1.2 : Math.random() * 1.4 + 0.7,
+      size: isMobile ? Math.random() * 1.0 + 0.9 : Math.random() * 1.4 + 0.7,
     }));
+    lastPRef.current = -1;
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lang]);
 
@@ -149,15 +158,25 @@ export default function Hero() {
       t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
 
     const draw = () => {
+      const p = progressRef.current;
+
+      // Skip redraw when scroll hasn't changed
+      if (p === lastPRef.current) {
+        rafRef.current = requestAnimationFrame(draw);
+        return;
+      }
+      lastPRef.current = p;
+
       const canvas = canvasRef.current;
       if (!canvas) { rafRef.current = requestAnimationFrame(draw); return; }
       const ctx = canvas.getContext("2d")!;
       const pts = particlesRef.current;
-      const p   = progressRef.current;
       const W   = canvas.width;
       const H   = canvas.height;
 
       ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = "rgba(249,248,246,0.88)";
+      ctx.beginPath();
 
       for (const pt of pts) {
         let x: number, y: number;
@@ -205,12 +224,11 @@ export default function Hero() {
           x = pt.tx3; y = pt.ty3;
         }
 
-        ctx.beginPath();
+        ctx.moveTo(x + pt.size, y);
         ctx.arc(x, y, pt.size, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(249,248,246,0.88)";
-        ctx.fill();
       }
 
+      ctx.fill();
       rafRef.current = requestAnimationFrame(draw);
     };
 
@@ -219,9 +237,15 @@ export default function Hero() {
   }, [setupParticles]);
 
   useEffect(() => {
-    const onResize = () => document.fonts.ready.then(setupParticles);
+    const onResize = () => {
+      if (resizeTimerRef.current) clearTimeout(resizeTimerRef.current);
+      resizeTimerRef.current = setTimeout(() => document.fonts.ready.then(setupParticles), 250);
+    };
     window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      if (resizeTimerRef.current) clearTimeout(resizeTimerRef.current);
+    };
   }, [setupParticles]);
 
   return (
@@ -239,7 +263,7 @@ export default function Hero() {
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-white/30" />
+          <div className="absolute inset-0 bg-white/80" />
         </motion.div>
 
         {/* Dark overlay */}
@@ -268,18 +292,24 @@ export default function Hero() {
               className="font-semibold tracking-tight leading-[1.08] text-[#111111]"
               style={{ fontSize: "min(11.5vw, 152px)" }}
             >
-              <span className="block">Agustin</span>
+              <span className="block">Agustín</span>
               <span className="block">Galeazzi</span>
             </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
-              className="tracking-[0.25em] uppercase text-[#111111]/50 font-normal"
-              style={{ fontSize: "min(2.2vw, 28px)", marginTop: "1rem" }}
+            <motion.div
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
+              className="flex items-center justify-center gap-4 mt-5"
             >
-              developer
-            </motion.p>
+              <span className="block h-px w-8 bg-[#111111]/30" />
+              <span
+                className="font-mono font-bold tracking-[0.35em] uppercase text-[#111111]/75"
+                style={{ fontSize: "clamp(13px, 2vw, 20px)" }}
+              >
+                developer
+              </span>
+              <span className="block h-px w-8 bg-[#111111]/30" />
+            </motion.div>
           </div>
         </motion.div>
 

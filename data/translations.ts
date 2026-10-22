@@ -9,18 +9,20 @@ const translations = {
     },
     hero: {
       line2: ["Desarrollo", "Web"],
-      line3: ["no programo soluciones", "sino experiencias eficientes"],
+      line3: ["Programación de apps"],
       line4: ["Explorá mis", "trabajos"],
     },
     projects: {
       label: "Trabajos",
       noPreview: "Vista previa no disponible",
+      categoryWeb: "Páginas web",
+      categoryApp: "Apps",
     },
     about: {
       label: "Sobre mí",
       role: "Diseñador Multimedial",
-      bio1: "Soy licenciado en diseño multimedial, me dedico a realizar experiencias digitales que parten desde el análisis hasta el diseño del producto final, poniendo especial atención a cada detalle.",
-      bio2: "Realizo trabajos de programación digital y desarrollo web que permiten fusionar distintas ramas del campo de la multimedia.",
+      bio1: "Soy Agustín Galeazzi, licenciado en Diseño Multimedial. Me especializo en crear experiencias digitales, partiendo desde el análisis conceptual hasta el desarrollo de un producto final.",
+      bio2: "Trabajo en la intersección del diseño y la programación, combinando criterio visual con código para construir piezas que no solo se ven bien, sino que funcionan.",
       linkedin: "Ver perfil en LinkedIn →",
       skills: "Habilidades",
       featured: "Trabajo destacado",
@@ -34,7 +36,7 @@ const translations = {
       waMessage: "Hola%20Agustin%2C%20te%20contacto%20desde%20tu%20portfolio%20web.",
     },
     footer: {
-      copy: "© 2025 Agustin Galeazzi — Diseñador Multimedial",
+      copy: "© 2025 Agustín Galeazzi — Diseñador Multimedial",
     },
   },
   en: {
@@ -51,12 +53,14 @@ const translations = {
     projects: {
       label: "Works",
       noPreview: "Preview not available",
+      categoryWeb: "Web pages",
+      categoryApp: "Apps",
     },
     about: {
       label: "About me",
       role: "Multimedia Designer",
-      bio1: "I hold a degree in Multimedia Design. I specialize in building digital experiences — from initial analysis through to the final product — paying close attention to every detail.",
-      bio2: "I work in digital programming and web development, bridging different branches of the multimedia field.",
+      bio1: "I'm Agustín Galeazzi, a Multimedia Design graduate. I specialize in crafting digital experiences — from conceptual analysis through to the final product.",
+      bio2: "I work at the intersection of design and programming, combining visual sensibility with code to build things that not only look good, but work.",
       linkedin: "View LinkedIn profile →",
       skills: "Skills",
       featured: "Featured work",
@@ -70,7 +74,7 @@ const translations = {
       waMessage: "Hello%20Agustin%2C%20I%27m%20reaching%20out%20from%20your%20web%20portfolio.",
     },
     footer: {
-      copy: "© 2025 Agustin Galeazzi — Multimedia Designer",
+      copy: "© 2025 Agustín Galeazzi — Multimedia Designer",
     },
   },
 } as const;

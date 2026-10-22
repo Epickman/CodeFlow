@@ -15,16 +15,16 @@ const SITE_URL = "https://agustingaleazzidev.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Agustin Galeazzi — Diseñador Web & Multimedial | La Plata, Argentina",
-    template: "%s | Agustin Galeazzi",
+    default: "Agustín Galeazzi — Diseñador Web & Multimedial | La Plata, Argentina",
+    template: "%s | Agustín Galeazzi",
   },
   description:
-    "Portfolio de Agustin Galeazzi, Licenciado en Diseño Multimedial y Desarrollador Web de La Plata, Argentina. Especializado en diseño UX/UI, experiencias digitales y desarrollo con Next.js.",
+    "Portfolio de Agustín Galeazzi, Licenciado en Diseño Multimedial y Desarrollador Web de La Plata, Argentina. Especializado en diseño UX/UI, experiencias digitales y desarrollo con Next.js.",
   keywords: [
     "diseñador web La Plata",
     "desarrollador web Argentina",
     "diseño UX UI",
-    "Agustin Galeazzi",
+    "Agustín Galeazzi",
     "diseñador multimedial",
     "portfolio diseñador web",
     "Next.js developer Argentina",
@@ -32,20 +32,20 @@ export const metadata: Metadata = {
     "experiencias digitales",
     "frontend developer Argentina",
   ],
-  authors: [{ name: "Agustin Galeazzi", url: SITE_URL }],
-  creator: "Agustin Galeazzi",
+  authors: [{ name: "Agustín Galeazzi", url: SITE_URL }],
+  creator: "Agustín Galeazzi",
   openGraph: {
     type: "website",
     locale: "es_AR",
     url: SITE_URL,
-    siteName: "Agustin Galeazzi Dev",
-    title: "Agustin Galeazzi — Diseñador Web & Multimedial",
+    siteName: "Agustín Galeazzi Dev",
+    title: "Agustín Galeazzi — Diseñador Web & Multimedial",
     description:
       "Licenciado en Diseño Multimedial y Desarrollador Web de La Plata, Argentina. Especializado en diseño UX/UI, experiencias digitales y Next.js.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agustin Galeazzi — Diseñador Web & Multimedial",
+    title: "Agustín Galeazzi — Diseñador Web & Multimedial",
     description:
       "Licenciado en Diseño Multimedial y Desarrollador Web de La Plata, Argentina.",
   },
@@ -70,7 +70,7 @@ const jsonLd = {
     {
       "@type": "Person",
       "@id": `${SITE_URL}/#person`,
-      name: "Agustin Galeazzi",
+      name: "Agustín Galeazzi",
       url: SITE_URL,
       image: `${SITE_URL}/yo.jpg`,
       jobTitle: "Diseñador Web y Desarrollador Frontend",
@@ -92,9 +92,9 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
       url: SITE_URL,
-      name: "Agustin Galeazzi Dev",
+      name: "Agustín Galeazzi Dev",
       description:
-        "Portfolio de Agustin Galeazzi, Diseñador Web y Desarrollador Multimedial.",
+        "Portfolio de Agustín Galeazzi, Diseñador Web y Desarrollador Multimedial.",
       author: { "@id": `${SITE_URL}/#person` },
       inLanguage: "es-AR",
     },

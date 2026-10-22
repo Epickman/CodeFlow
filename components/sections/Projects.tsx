@@ -6,6 +6,9 @@ import { useLanguage } from "@/context/LanguageContext";
 export default function Projects() {
   const { t } = useLanguage();
 
+  const webProjects = projects.filter((p) => !("appStore" in p || "playStore" in p));
+  const appProjects = projects.filter((p) => "appStore" in p || "playStore" in p);
+
   return (
     <section
       id="trabajos"
@@ -18,11 +21,28 @@ export default function Projects() {
             {t.projects.label}
           </h2>
         </div>
+
+        <p className="text-xs tracking-widest uppercase text-[var(--color-muted)] mb-6">
+          {t.projects.categoryWeb}
+        </p>
         <div className="grid md:grid-cols-2 gap-5">
-          {projects.map((project, index) => (
+          {webProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
+
+        {appProjects.length > 0 && (
+          <>
+            <p className="text-xs tracking-widest uppercase text-[var(--color-muted)] mt-16 mb-6">
+              {t.projects.categoryApp}
+            </p>
+            <div className="grid md:grid-cols-2 gap-5">
+              {appProjects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} index={index} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );

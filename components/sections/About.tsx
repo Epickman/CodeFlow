@@ -40,6 +40,7 @@ export default function About() {
             src="/yo.jpg"
             alt="Agustin Galeazzi"
             fill
+            sizes="(max-width: 768px) 75vw, 33vw"
             className="object-cover object-center"
           />
         </motion.div>
@@ -58,7 +59,7 @@ export default function About() {
               </h2>
             </div>
             <p className="text-4xl font-semibold text-white mb-2">
-              Agustin Galeazzi
+              Agustín Galeazzi
             </p>
             <p className="text-base tracking-widest uppercase text-[var(--color-accent)] mb-8">
               {t.about.role}

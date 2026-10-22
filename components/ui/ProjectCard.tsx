@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -13,6 +13,8 @@ interface Project {
   description: string;
   description_en?: string;
   url: string;
+  appStore?: string;
+  playStore?: string;
   tags: string[];
 }
 
@@ -20,9 +22,58 @@ function screenshotUrl(siteUrl: string) {
   return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(siteUrl)}?w=800&h=500`;
 }
 
-function Thumbnail({ url, title, noPreview }: { url: string; title: string; noPreview: string }) {
+function Thumbnail({ url, title, noPreview, isApp, appStore }: { url: string; title: string; noPreview: string; isApp?: boolean; appStore?: string }) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
+  const [appScreenshots, setAppScreenshots] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (!isApp || !appStore) return;
+    const match = appStore.match(/id(\d+)/);
+    if (!match) return;
+    fetch(`https://itunes.apple.com/lookup?id=${match[1]}`)
+      .then((r) => r.json())
+      .then((data) => {
+        const srcs: string[] = data.results?.[0]?.screenshotUrls ?? [];
+        if (srcs.length) setAppScreenshots(srcs);
+      })
+      .catch(() => {});
+  }, [isApp, appStore]);
+
+  if (isApp) {
+    if (!appScreenshots.length) {
+      return (
+        <div className="w-full h-52 bg-gradient-to-br from-[var(--color-border)] to-[var(--color-bg)] animate-pulse" />
+      );
+    }
+    return (
+      <div className="w-full overflow-x-auto bg-[var(--color-bg)] scrollbar-hide">
+        <div className="flex gap-2 p-3">
+          {appScreenshots.map((src, i) => (
+            <div key={i} className="relative flex-shrink-0 h-52 w-24 rounded overflow-hidden">
+              <Image
+                src={src}
+                alt={`${title} screenshot ${i + 1}`}
+                fill
+                className="object-cover"
+                unoptimized
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (!url) {
+    return (
+      <div className="relative w-full aspect-video overflow-hidden bg-[var(--color-bg)] flex items-center justify-center">
+        <span className="text-xs text-[var(--color-muted)] tracking-widest uppercase">
+          {noPreview}
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div className="relative w-full aspect-video overflow-hidden bg-[var(--color-bg)]">
@@ -71,19 +122,11 @@ export default function ProjectCard({
   const { lang, t } = useLanguage();
   const category = lang === "en" && project.category_en ? project.category_en : project.category;
   const description = lang === "en" && project.description_en ? project.description_en : project.description;
+  const isApp = !!(project.appStore || project.playStore);
 
-  return (
-    <motion.a
-      href={project.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-      className="group border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-text)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 block overflow-hidden"
-    >
-      <Thumbnail url={project.url} title={project.title} noPreview={t.projects.noPreview} />
+  const cardContent = (
+    <>
+      <Thumbnail url={project.url} title={project.title} noPreview={t.projects.noPreview} isApp={isApp} appStore={project.appStore} />
 
       <div className="p-6">
         <div className="mb-3">
@@ -91,7 +134,7 @@ export default function ProjectCard({
             {category}
           </span>
         </div>
-        <h3 className="text-lg font-semibold mb-2 leading-snug group-hover:underline underline-offset-2">
+        <h3 className={`text-lg font-semibold mb-2 leading-snug ${!isApp ? "group-hover:underline underline-offset-2" : ""}`}>
           {project.title}
         </h3>
         <p className="text-[var(--color-muted)] text-sm leading-relaxed mb-5">
@@ -107,7 +150,62 @@ export default function ProjectCard({
             </span>
           ))}
         </div>
+        {isApp && (
+          <div className="flex flex-wrap gap-3 mt-5">
+            {project.appStore && (
+              <a
+                href={project.appStore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs border border-[var(--color-border)] px-3 py-1.5 hover:border-[var(--color-text)] transition-colors duration-200"
+                onClick={(e) => e.stopPropagation()}
+              >
+                App Store <ArrowUpRight size={12} />
+              </a>
+            )}
+            {project.playStore && (
+              <a
+                href={project.playStore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs border border-[var(--color-border)] px-3 py-1.5 hover:border-[var(--color-text)] transition-colors duration-200"
+                onClick={(e) => e.stopPropagation()}
+              >
+                Google Play <ArrowUpRight size={12} />
+              </a>
+            )}
+          </div>
+        )}
       </div>
+    </>
+  );
+
+  if (isApp) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, delay: index * 0.08 }}
+        className="group border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-text)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 overflow-hidden"
+      >
+        {cardContent}
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.a
+      href={project.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+      className="group border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-text)] hover:shadow-[var(--shadow-card-hover)] transition-all duration-300 block overflow-hidden"
+    >
+      {cardContent}
     </motion.a>
   );
 }

@@ -1,5 +1,15 @@
 [
   {
+    "id": "killer-studio",
+    "title": "Killer Studio FX",
+    "category": "Agencia creativa",
+    "category_en": "Creative agency",
+    "description": "Sitio para estudio de efectos visuales y motion graphics. Presentación de servicios, showreel y contacto para producciones audiovisuales.",
+    "description_en": "Website for a visual effects and motion graphics studio. Services, showreel and contact for audiovisual productions.",
+    "url": "https://www.killerstudiofx.com/",
+    "tags": ["Web Design", "Motion", "VFX"]
+  },
+  {
     "id": "auris",
     "title": "Auris — VonharV",
     "category": "Landing de producto",
@@ -20,26 +30,6 @@
     "tags": ["Web Design", "Next.js", "Eventos"]
   },
   {
-    "id": "killer-studio",
-    "title": "Killer Studio FX",
-    "category": "Agencia creativa",
-    "category_en": "Creative agency",
-    "description": "Sitio para estudio de efectos visuales y motion graphics. Presentación de servicios, showreel y contacto para producciones audiovisuales.",
-    "description_en": "Website for a visual effects and motion graphics studio. Services, showreel and contact for audiovisual productions.",
-    "url": "https://www.killerstudiofx.com/",
-    "tags": ["Web Design", "Motion", "VFX"]
-  },
-  {
-    "id": "sorteo-dia-madre",
-    "title": "Sorteo Día de la Madre",
-    "category": "Aplicación web",
-    "category_en": "Web app",
-    "description": "Aplicación de sorteo interactiva para el Día de la Madre. Registro de participantes, animación del sorteo en tiempo real y gestión de premios.",
-    "description_en": "Interactive raffle app for Mother's Day. Participant registration, real-time draw animation and prize management.",
-    "url": "https://sorteodiadelamadre.vercel.app/",
-    "tags": ["Next.js", "UI/UX", "App"]
-  },
-  {
     "id": "estudio-centenario",
     "title": "Estudio Centenario",
     "category": "Sitio profesional",
@@ -58,6 +48,18 @@
     "description_en": "Site for a boutique audiovisual production company from Buenos Aires and La Plata. Cinematographic coverage, visual concept and post-production.",
     "url": "https://project-4s9ht.vercel.app/",
     "tags": ["Web Design", "Next.js", "Audiovisual"]
+  },
+  {
+    "id": "creative-events-app",
+    "title": "Creative Events App",
+    "category": "App",
+    "category_en": "App",
+    "description": "App para la productora Creative Events. Gestión de eventos, galería de trabajos y contacto directo. Disponible en iOS y Android.",
+    "description_en": "App for the Creative Events production company. Event management, portfolio gallery and direct contact. Available on iOS and Android.",
+    "url": "",
+    "appStore": "https://apps.apple.com/ar/app/creative-events/id6753777660",
+    "playStore": "https://play.google.com/store/apps/details?id=com.creative.crve.creativeapp&pcampaignid=web_share",
+    "tags": ["iOS", "Android", "React Native"]
   },
   {
     "id": "subasta",
