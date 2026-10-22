@@ -99,7 +99,7 @@ export default function Hero() {
       ctx.fillStyle = "white";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      const line3 = t.hero.line3 as string[];
+      const line3 = t.hero.line3 as unknown as string[];
       const maxW = W * 0.88;
       let line3fs = dfs;
       ctx.font = `600 ${line3fs}px "DM Sans", sans-serif`;
