@@ -47,7 +47,7 @@ const translations = {
     },
     hero: {
       line2: ["Web", "Development"],
-      line3: ["I don't code solutions", "I craft efficient experiences"],
+      line3: ["App Development"],
       line4: ["Explore my", "work"],
     },
     projects: {
