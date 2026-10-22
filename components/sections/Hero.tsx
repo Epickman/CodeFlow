@@ -99,15 +99,16 @@ export default function Hero() {
       ctx.fillStyle = "white";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
+      const line3 = t.hero.line3 as string[];
       const maxW = W * 0.88;
       let line3fs = dfs;
       ctx.font = `600 ${line3fs}px "DM Sans", sans-serif`;
-      while (t.hero.line3[0] && ctx.measureText(t.hero.line3[0]).width > maxW && line3fs > 18) {
+      while (line3[0] && ctx.measureText(line3[0]).width > maxW && line3fs > 18) {
         line3fs -= 1;
         ctx.font = `600 ${line3fs}px "DM Sans", sans-serif`;
       }
-      ctx.fillText(t.hero.line3[0], W / 2, H * 0.45);
-      if (t.hero.line3[1]) ctx.fillText(t.hero.line3[1], W / 2, H * 0.45 + line3fs * 1.08);
+      ctx.fillText(line3[0], W / 2, H * 0.45);
+      if (line3[1]) ctx.fillText(line3[1], W / 2, H * 0.45 + line3fs * 1.08);
     });
 
     // Formación 4: Explorá mis trabajos
