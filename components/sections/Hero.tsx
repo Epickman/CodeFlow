@@ -41,6 +41,7 @@ export default function Hero() {
   const imgOpacity   = useTransform(scrollYProgress, [0, 0.30], [1, 0]);
   const darkOpacity  = useTransform(scrollYProgress, [0.10, 0.30], [0, 1]);
   const arrowOpacity = useTransform(scrollYProgress, [0.93, 1.00], [0, 1]);
+  const scrollHintOpacity = useTransform(scrollYProgress, [0, 0.07], [1, 0]);
 
   const setupParticles = useCallback(() => {
     const canvas = canvasRef.current;
@@ -310,6 +311,39 @@ export default function Hero() {
               <span className="block h-px w-8 bg-[#111111]/30" />
             </motion.div>
           </div>
+        </motion.div>
+
+        {/* Scroll hint — visible al inicio, desaparece al scrollear */}
+        <motion.div
+          className="absolute inset-x-0 bottom-8 flex justify-center cursor-pointer"
+          style={{ zIndex: 31, opacity: scrollHintOpacity }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 1.4 }}
+          onClick={() => {
+            if (!containerRef.current) return;
+            const bottom = containerRef.current.offsetTop + containerRef.current.offsetHeight;
+            window.scrollTo({ top: bottom, behavior: "smooth" });
+          }}
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.1, repeat: Infinity, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-1"
+          >
+            <span
+              className="font-mono tracking-[0.25em] uppercase text-[#111111]/55 select-none"
+              style={{ fontSize: "12px" }}
+            >
+              scroll
+            </span>
+            <svg width="34" height="20" viewBox="0 0 34 20" fill="none">
+              <path d="M4 4l13 11 13-11" stroke="#111111" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.7"/>
+            </svg>
+            <svg width="34" height="20" viewBox="0 0 34 20" fill="none" className="-mt-2">
+              <path d="M4 4l13 11 13-11" stroke="#111111" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.35"/>
+            </svg>
+          </motion.div>
         </motion.div>
 
         {/* Flecha ↓ */}

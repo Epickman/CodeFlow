@@ -19,12 +19,13 @@ interface Project {
 }
 
 function screenshotUrl(siteUrl: string) {
-  return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(siteUrl)}?w=800&h=500`;
+  return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(siteUrl)}?w=800&h=450`;
 }
 
 function Thumbnail({ url, title, noPreview, isApp, appStore }: { url: string; title: string; noPreview: string; isApp?: boolean; appStore?: string }) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
+  const [hovered, setHovered] = useState(false);
   const [appScreenshots, setAppScreenshots] = useState<string[]>([]);
 
   useEffect(() => {
@@ -76,7 +77,11 @@ function Thumbnail({ url, title, noPreview, isApp, appStore }: { url: string; ti
   }
 
   return (
-    <div className="relative w-full aspect-video overflow-hidden bg-[var(--color-bg)]">
+    <div
+      className="relative w-full aspect-video overflow-hidden bg-[var(--color-bg)]"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       {!loaded && !error && (
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-border)] to-[var(--color-bg)] animate-pulse" />
       )}
@@ -90,24 +95,24 @@ function Thumbnail({ url, title, noPreview, isApp, appStore }: { url: string; ti
       )}
 
       {!error && (
-        <Image
-          src={screenshotUrl(url)}
-          alt={`Captura de ${title}`}
-          fill
-          className={`object-cover object-top transition-all duration-500 group-hover:scale-105 ${
-            loaded ? "opacity-100" : "opacity-0"
-          }`}
-          unoptimized
-          onLoad={() => setLoaded(true)}
-          onError={() => setError(true)}
-        />
-      )}
+        <>
+          <Image
+            src={screenshotUrl(url)}
+            alt={`Captura de ${title}`}
+            fill
+            className={`object-contain object-top ${loaded ? "opacity-100" : "opacity-0"} transition-opacity duration-500`}
+            unoptimized
+            onLoad={() => setLoaded(true)}
+            onError={() => setError(true)}
+          />
 
-      <div className="absolute inset-0 bg-[var(--color-text)]/0 group-hover:bg-[var(--color-text)]/10 transition-colors duration-300 flex items-center justify-center">
-        <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-md">
-          <ArrowUpRight size={16} className="text-[var(--color-text)]" />
-        </div>
-      </div>
+          <div className="absolute inset-0 bg-[var(--color-text)]/0 group-hover:bg-[var(--color-text)]/10 transition-colors duration-300 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-md">
+              <ArrowUpRight size={16} className="text-[var(--color-text)]" />
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "ruleta-tragos",
+    "title": "Ruleta de Tragos",
+    "category": "Instalación interactiva",
+    "category_en": "Interactive installation",
+    "description": "Tótem táctil para eventos sociales. El usuario gira una ruleta animada que selecciona un trago al azar, convirtiendo el momento en un juego de sorpresa y diversión colectiva.",
+    "description_en": "Touch totem for social events. The user spins an animated wheel that randomly selects a cocktail, turning the moment into a game of surprise and collective fun.",
+    "behance": "https://www.behance.net/gallery/244681431/Ruleta-de-tragos",
+    "embed": "https://www.behance.net/embed/project/244681431?ilo0=1",
+    "tags": ["Unity", "Programación Web", "Touch Screen", "Eventos"],
+    "accent": "#D97706"
+  },
+  {
+    "id": "ascensor-alp",
+    "title": "Ascensor Interactivo ALP",
+    "category": "Experiencia arquitectónica",
+    "category_en": "Architectural experience",
+    "description": "Interfaz interactiva instalada en la cabina de un ascensor. Muestra contenido dinámico por piso y puntos de interés, convirtiendo el trayecto en una experiencia narrativa.",
+    "description_en": "Interactive interface inside an elevator cabin. Displays dynamic content per floor and points of interest, turning the ride into a narrative experience.",
+    "behance": "https://www.behance.net/gallery/244680859/Ascensor-interactivo-ALP",
+    "embed": "https://www.behance.net/embed/project/244680859?ilo0=1",
+    "tags": ["Unity", "Programación Web", "Sensores", "Arquitectura"],
+    "accent": "#2563EB"
+  },
+  {
+    "id": "photo-opportunity",
+    "title": "Tótem Photo Opportunity",
+    "category": "Experiencia de evento",
+    "category_en": "Event experience",
+    "description": "Kiosco táctil donde los asistentes eligen entre distintos escenarios fotográficos. Selector visual con preview en tiempo real antes de dirigirse al espacio elegido.",
+    "description_en": "Touch kiosk where attendees choose between different photo scenarios. Visual selector with real-time preview before heading to the chosen spot.",
+    "behance": "https://www.behance.net/gallery/244681119/Totem-Selector-de-photo-opportunity",
+    "embed": "https://www.behance.net/embed/project/244681119?ilo0=1",
+    "tags": ["Unity", "Programación Web", "Touch Screen", "Eventos"],
+    "accent": "#E11D48"
+  },
+  {
+    "id": "paloma-fest",
+    "title": "Tótem Paloma Fest",
+    "category": "Experiencia de festival",
+    "category_en": "Festival experience",
+    "description": "Tótem interactivo para Paloma Fest. Los asistentes exploran la grilla de artistas, el mapa del predio y actividades especiales desde un punto de información central.",
+    "description_en": "Interactive totem for Paloma Fest. Attendees explore the artist lineup, venue map and special activities from a central information point.",
+    "behance": "https://www.behance.net/gallery/244680771/Totem-Paloma-Fest",
+    "embed": "https://www.behance.net/embed/project/244680771?ilo0=1",
+    "tags": ["Unity", "Programación Web", "Festivales", "Eventos"],
+    "accent": "#7C3AED"
+  }
+]

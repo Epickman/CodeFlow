@@ -18,6 +18,10 @@ const translations = {
       categoryWeb: "Páginas web",
       categoryApp: "Apps",
     },
+    totems: {
+      label: "Tótems interactivos",
+      behance: "Ver en Behance",
+    },
     about: {
       label: "Sobre mí",
       role: "Diseñador Multimedial",
@@ -55,6 +59,10 @@ const translations = {
       noPreview: "Preview not available",
       categoryWeb: "Web pages",
       categoryApp: "Apps",
+    },
+    totems: {
+      label: "Interactive totems",
+      behance: "View on Behance",
     },
     about: {
       label: "About me",
