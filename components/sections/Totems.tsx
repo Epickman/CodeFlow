@@ -17,7 +17,6 @@ interface Totem {
 }
 
 function TotemCard({ totem, index, lang }: { totem: Totem; index: number; lang: string }) {
-  const category = lang === "en" ? totem.category_en : totem.category;
   const description = lang === "en" ? totem.description_en : totem.description;
 
   return (

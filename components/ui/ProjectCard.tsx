@@ -100,7 +100,13 @@ function Thumbnail({ url, title, noPreview, isApp, appStore }: { url: string; ti
             src={screenshotUrl(url)}
             alt={`Captura de ${title}`}
             fill
-            className={`object-contain object-top ${loaded ? "opacity-100" : "opacity-0"} transition-opacity duration-500`}
+            className={`object-contain ${loaded ? "opacity-100" : "opacity-0"} transition-opacity duration-500`}
+            style={{
+              objectPosition: hovered ? "bottom" : "top",
+              transition: loaded
+                ? `opacity 0.5s, object-position ${hovered ? "8s" : "0.7s"} ease-in-out`
+                : "opacity 0.5s",
+            }}
             unoptimized
             onLoad={() => setLoaded(true)}
             onError={() => setError(true)}
